@@ -12,8 +12,14 @@ describe('Testing Irsan Sebastian blog e2e', function () {
       .type('#password', 'gueganteng')
       .click('button[type=submit]')
       .wait(1000)
-      .evaluate(function () {})
+      .evaluate(function (result) {  
+        return document.querySelectorAll(".brand-logo center").html
+      })
       .end()
-      .then(function (result) {})
+      .then(function (result) {
+        expect(result).to.equal('Irsan Sebastian');
+      }).catch(function(err){
+        console.log(err);
+      })
   })
 })
