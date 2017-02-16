@@ -7,5 +7,6 @@ var controllers = require('../controllers/article')
 router.post('/article', controllers.newArticle)
 router.get('/articles', controllers.getAllArticle)
 router.delete('/article', controllers.deleteArticle)
+router.get('/darticle', controllers.getDeletedArticle)
 
 module.exports = router

@@ -20,7 +20,7 @@ module.exports = {
       .then(function (data) {
         res.json(data)
       }).catch(function (err) {
-      res.send(err)
+      res.json(err)
     })
   },
   deleteArticle: function (req, res) {
@@ -34,9 +34,17 @@ module.exports = {
           if (err)
             console.log(err)
         })
-        res.send('Successfully Deleted')
+        res.json({id: data._id})
       }).catch(function (err) {
-      res.send(err)
+      res.json(err)
+    })
+  },
+  getDeletedArticle: function (req, res) {
+    models.find({is_deleted: 1})
+      .then(function (data) {
+        res.json(data)
+      }).catch(function (err) {
+      res.json(err)
     })
   }
 
